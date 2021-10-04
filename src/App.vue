@@ -31,7 +31,7 @@
         <td>{{ data.email }}</td>
         <td>
           <button>edit</button>
-          <button>remove</button>
+          <button @click="removeCompanyFromList(index)">remove</button>
         </td>
       </tr>
     </table>
@@ -105,6 +105,14 @@ export default {
     preventSubmit() {
       this.addCompany();
       this.deleteTextInput();
+    },
+    removeCompanyFromList(i) {
+      if (confirm("Are You Sure?")) {
+        this.headers.splice(i, 1);
+        alert("Your data has been deleted");
+      } else {
+        alert("You has been canceled");
+      }
     },
   },
 };
